@@ -153,7 +153,7 @@
             </tbody>
         </table>
 
-        <a href="/maquinas/create" class="btn" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Nueva Máquina</a>
+        <a href="maquinas/create" class="btn" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Nueva Máquina</a>
     </div>
 </body>
 </html>
