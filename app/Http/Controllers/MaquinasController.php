@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CursoController extends Controller
+class MaquinasController extends Controller
 {
         // Mostrar una lista de máquinas
 
@@ -24,6 +24,6 @@ class CursoController extends Controller
      {
          // Aquí iría el código para obtener una máquina específica por su id
          // $maquina = Maquina::find($id);
-         return view('maquinas.show'); // Llama a una vista que muestre los detalles de la máquina
+         return view('maquinas.show', compact ('idMaquina')); // Llama a una vista que muestre los detalles de la máquina
      }
 }
