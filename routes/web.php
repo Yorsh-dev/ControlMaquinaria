@@ -7,7 +7,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', HomeController::class);
+Route::get('public/', HomeController::class);
 Route::controller(MaquinasController::class)->group(function() 
 {
     Route::get('maquinas',[MaquinasController::class, 'index']);
