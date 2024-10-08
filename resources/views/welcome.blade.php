@@ -61,6 +61,7 @@
             cursor: pointer;
             text-decoration: none;
             font-size: 18px;
+            margin: 10px;
         }
 
         .btn:hover {
@@ -94,6 +95,8 @@
             </p>
             <div class="btn-container">
                 <a href="maquinas" class="btn"><i class="fas fa-cogs"></i> Ir a Gestión de Máquinas</a>
+                <a href="operadores" class="btn"><i class="fas fa-users"></i> Ir a Gestión de Operadores</a>
+                <a href="componentes" class="btn"><i class="fas fa-wrench"></i> Ir a Gestión de Componentes</a>
             </div>
         </div>
     </div>

@@ -4,38 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Componentes</title>
+    <title>Listado de Componentes</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa; /* Color de fondo claro */
+            background-color: #f4f7f9; /* Fondo claro */
+            font-family: 'Arial', sans-serif;
         }
+
         h1 {
-            color: #004085; /* Azul oscuro */
+            color: #007bff; /* Azul oscuro */
         }
+
         .btn-success {
-            background-color: #ff6600; /* Naranja */
-            border-color: #ff6600; /* Naranja */
+            background-color: #28a745; /* Verde */
+            border-color: #28a745; /* Verde */
         }
-        .btn-info {
+
+        .btn-secondary {
             background-color: #007bff; /* Azul */
             border-color: #007bff; /* Azul */
         }
-        .table thead th {
-            background-color: #ff6600; /* Naranja */
-            color: white; /* Texto blanco */
+
+        .btn-danger {
+            background-color: #dc3545; /* Rojo */
+            border-color: #dc3545; /* Rojo */
+        }
+
+        .card {
+            border: none; /* Sin borde para un aspecto más limpio */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+        }
+
+        .container {
+            max-width: 1000px;
+            margin-top: 20px;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        .btn-secondary, .btn-success, .btn-danger, .btn-back {
+            margin-top: 10px;
+        }
+
+        .btn-back {
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Gestión de Componentes</h1>
-        <div class="mb-3">
-            <a href="{{ route('componentes.create') }}" class="btn btn-success">Agregar Componente</a>
-        </div>
-        <table class="table table-striped">
-            <thead>
+        <h1 class="text-center mb-4">Listado de Componentes</h1>
+
+        <!-- Tabla de Componentes -->
+        <table class="table table-bordered">
+            <thead class="thead-dark">
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
@@ -45,29 +71,40 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- Aquí se deben mostrar los componentes -->
                 @foreach($componentes as $componente)
-                <tr>
-                    <td>{{ $componente->id }}</td>
-                    <td>{{ $componente->nombre }}</td>
-                    <td>{{ $componente->maquina_asignada }}</td>
-                    <td>{{ $componente->cantidad }}</td>
-                    <td>
-                        <a href="{{ route('componentes.show', $componente->id) }}" class="btn btn-info">Ver</a>
-                        <!-- Aquí puedes agregar opciones para editar o eliminar el componente -->
-                        <a href="{{ route('componentes.edit', $componente->id) }}" class="btn btn-warning">Editar</a>
-                        <form action="{{ route('componentes.destroy', $componente->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{ $componente->id }}</td>
+                        <td>{{ $componente->nombre }}</td>
+                        <td>{{ $componente->maquina_asignada }}</td>
+                        <td>{{ $componente->cantidad }}</td>
+                        <td>
+                            <!-- Botones de acción -->
+                            <a href="{{ route('componentes.show', $componente->id) }}" class="btn btn-info">Ver</a>
+                            <a href="{{ route('componentes.edit', $componente->id) }}" class="btn btn-warning">Editar</a>
+                            <form action="{{ route('componentes.destroy', $componente->id) }}" method="POST" style="display:inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este componente?')">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
+
+        <!-- Botón para agregar nuevo componente -->
+        <a href="componentes/create" class="btn btn-success">
+            <i class="fas fa-plus"></i> Añadir Nuevo Componente
+        </a>
+
+        <!-- Botón para volver al inicio -->
+        <a href="/ControlMaquinaria/public" class="btn btn-secondary btn-back">Volver al Inicio</a>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+

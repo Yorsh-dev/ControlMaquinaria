@@ -68,6 +68,15 @@
         .btn:hover {
             background-color: #218838;
         }
+
+        .back-btn {
+            background-color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .back-btn i {
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -76,6 +85,9 @@
     </header>
 
     <div class="container">
+        <!-- Botón Volver al Inicio -->
+        <a href="/ControlMaquinaria/public/" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
+
         <h2>Listado de Operadores</h2>
         <table class="operator-list">
             <thead>
@@ -85,6 +97,7 @@
                     <th>Máquinas Asignadas</th>
                     <th>Certificaciones</th>
                     <th>Última Asignación</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -94,6 +107,10 @@
                     <td>Excavadora 3000, Cargadora X200</td>
                     <td>Certificación de Operador de Excavadora</td>
                     <td>01/09/2024</td>
+                    <td>
+                        <a href="/operadores/1/edit" class="btn">Editar</a>
+                        <a href="/operadores/1" class="btn">Ver</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -101,6 +118,10 @@
                     <td>Retroexcavadora B150</td>
                     <td>Certificación de Seguridad Industrial</td>
                     <td>15/09/2024</td>
+                    <td>
+                        <a href="/operadores/2/edit" class="btn">Editar</a>
+                        <a href="/operadores/2" class="btn">Ver</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>3</td>
@@ -108,13 +129,17 @@
                     <td>Bulldozer D450</td>
                     <td>Certificación de Operador de Bulldozer</td>
                     <td>20/09/2024</td>
+                    <td>
+                        <a href="/operadores/3/edit" class="btn">Editar</a>
+                        <a href="/operadores/3" class="btn">Ver</a>
+                    </td>
                 </tr>
                 <!-- Agrega más filas según sea necesario -->
             </tbody>
         </table>
 
-        <a href="/operadores/create" class="btn" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Nuevo Operador</a>
+        <!-- Botón para agregar nuevo operador -->
+        <a href="operadores/create" class="btn" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Nuevo Operador</a>
     </div>
 </body>
 </html>
-

@@ -143,7 +143,7 @@
             <h2>No se encontraron resultados.</h2>
         @endif
 
-        <a href="/operadores" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
+        <a href="/ControlMaquinaria/public/operadores" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
     </div>
 </body>
 </html>

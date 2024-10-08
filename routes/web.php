@@ -7,7 +7,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('public/', HomeController::class);
+Route::get('/', HomeController::class);
 Route::controller(MaquinasController::class)->group(function() 
 {
     Route::get('maquinas',[MaquinasController::class, 'index']);
@@ -15,9 +15,16 @@ Route::controller(MaquinasController::class)->group(function()
     Route::get('maquinas/{idMaquinas}',[MaquinasController::class, 'show']);
 });   
 
-Route::controller(OperadoresController::class)->group(function() 
-{
-    Route::get('operador',[OperadoresController::class, 'index']);
-    Route::get('operador/create',[OperadoresController::class, 'create']);
-    Route::get('operador/{idoperador}',[OperadoresController::class, 'show']);
-});  
+Route::controller(OperadoresController::class)->group(function() {
+    Route::get('operadores',[OperadoresController::class, 'index']);
+    Route::get('operadores/create',[OperadoresController::class, 'create']);
+    Route::get('operadores/{idOperador}',[OperadoresController::class, 'show']);
+});
+
+Route::controller(ComponentesController::class)->group(function() {
+    Route::get('componentes', 'index');           // Listar todos los componentes
+    Route::get('componentes/create', 'create');   // Formulario para crear un componente
+    Route::get('componentes/show'); // Ver detalles de un componente
+});
+
+

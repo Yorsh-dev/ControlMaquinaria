@@ -107,6 +107,16 @@
         .actions .btn-delete:hover {
             background-color: #c82333;
         }
+
+        .btn-back {
+            background-color: #007bff;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -154,6 +164,9 @@
         </table>
 
         <a href="maquinas/create" class="btn" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Nueva Máquina</a>
+
+        <!-- Botón para volver al inicio -->
+        <a href="/ControlMaquinaria/public/" class="btn btn-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
     </div>
 </body>
 </html>

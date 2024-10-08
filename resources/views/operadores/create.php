@@ -111,7 +111,7 @@
             <button type="submit" class="btn"><i class="fas fa-save"></i> Guardar Operador</button>
         </form>
 
-        <a href="/operadores" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
+        <a href="/ControlMaquinaria/public/operadores" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
     </div>
 
 </body>
