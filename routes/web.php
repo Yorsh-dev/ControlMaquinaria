@@ -3,6 +3,7 @@
 use App\Http\Controllers\MaquinasController;
 use App\Http\Controllers\OperadoresController;
 use App\Http\Controllers\ComponentesController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,10 @@ Route::controller(ComponentesController::class)->group(function() {
     Route::get('componentes/create', 'create');   // Formulario para crear un componente
     Route::get('componentes/show'); // Ver detalles de un componente
 });
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
+
 
 
