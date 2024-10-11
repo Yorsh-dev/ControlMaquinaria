@@ -40,7 +40,10 @@
 
         .container {
             max-width: 1000px;
-            margin-top: 20px;
+            margin-top: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);;
         }
 
         .table th, .table td {
