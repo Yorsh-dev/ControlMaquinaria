@@ -220,7 +220,7 @@
             <div class="textBox">
                 <h2>Sistema de Control de Maquinaria<br> EL <span>YORSH</span></h2>
                 <p>Somos una empresa comprometida con el cliente, siempre cumpliendo con las expectativas propuestas y con atención al cliente amigable.</p>
-                <a href="#">Contáctanos</a>
+                <a href="contact">Contáctanos</a>
             </div>
             <div class="imgBox">
                 <img src="{{ asset('images/img1.png') }}" class="Yorsh">
