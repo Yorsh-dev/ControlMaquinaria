@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
-        
+
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #333;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
@@ -22,6 +22,7 @@
             padding: 20px;
             text-align: center;
             font-size: 24px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .container {
@@ -30,16 +31,19 @@
             padding: 20px;
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             color: #333;
             text-align: center;
+            margin-bottom: 20px;
         }
 
         .details {
             margin-top: 20px;
+            border-top: 2px solid #efb810;
+            padding-top: 20px;
         }
 
         .details label {
@@ -52,6 +56,10 @@
         .details p {
             font-size: 18px;
             margin: 5px 0;
+            padding: 8px;
+            border-left: 4px solid #efb810;
+            background-color: #f9f9f9;
+            border-radius: 4px;
         }
 
         .status-operativa {
@@ -79,6 +87,7 @@
             text-decoration: none;
             display: inline-block;
             margin-top: 20px;
+            transition: background-color 0.3s;
         }
 
         .btn i {
@@ -108,7 +117,6 @@
         <h2>{{ $maquina->nombre }}</h2>
 
         <div class="details">
-<<<<<<< HEAD:resources/views/maquinas/show.php
             <label>Marca:</label>
             <p>{{ $maquina->marca }}</p>
 
@@ -118,33 +126,11 @@
             <label>Serie:</label>
             <p>{{ $maquina->serie }}</p>
 
-            <label>Tipo de tipo_combustible:</label>
-            <p>{{ $maquina->tipo_combustible }}</p>
-
-            <label>Precio por Hora:</label>
-            <p>{{ $maquina->precio_por_hora }}</p>
-
-            <label>Serie:</label>
-            <p>{{ $maquina->serie }}</p>
-=======
-            <label>ID:</label>
-            <p>{{ $maquina->id }}</p>
-
-            <label>Marca:</label>
-            <p>{{ $maquina->marca }}</p>
-
-            <label>Modelo:</label>
-            <p>{{ $maquina->modelo }}</p>
-
-            <label>Número de Serie:</label>
-            <p>{{ $maquina->serie }}</p>
-
             <label>Tipo de Combustible:</label>
             <p>{{ $maquina->tipo_combustible }}</p>
 
             <label>Precio por Hora:</label>
             <p>S/. {{ number_format($maquina->precio_por_hora, 2) }}</p>
->>>>>>> c089534d6e3f07d6aa204ca6fbe71b7b9ee54618:resources/views/maquinas/show.blade.php
 
             <label>Estado:</label>
             <p class="{{ $maquina->estado == 'operativa' ? 'status-operativa' : ($maquina->estado == 'mantenimiento' ? 'status-mantenimiento' : 'status-fuera') }}">
@@ -152,26 +138,16 @@
             </p>
 
             <label>Ubicación Actual:</label>
-<<<<<<< HEAD:resources/views/maquinas/show.php
             <p>{{ $maquina->ubicacion_actual }}</p>
 
             <label>Horas Usadas:</label>
             <p>{{ $maquina->horas_uso }}</p>
 
             <label>Operador Encargado:</label>
-            <p>{{ $maquina->operador_id }}</p>
-=======
-            <p>{{ $maquina->ubicacion_actual ?? 'No especificada' }}</p>
-
-            <label>Horas de Uso:</label>
-            <p>{{ $maquina->horas_uso ?? 'No especificadas' }}</p>
-
-            <label>ID del Operador:</label>
-            <p>{{ $maquina->operador_id ?? 'Sin asignar' }}</p>
->>>>>>> c089534d6e3f07d6aa204ca6fbe71b7b9ee54618:resources/views/maquinas/show.blade.php
+            <p>{{ $maquina->operador_id ? $maquina->operador->nombre : 'Sin operador asignado' }}</p>
         </div>
 
-        <a href="/ControlMaquinaria/public/maquinas" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
+        <a href="{{ url('maquinas') }}" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
     </div>
 </body>
 </html>
