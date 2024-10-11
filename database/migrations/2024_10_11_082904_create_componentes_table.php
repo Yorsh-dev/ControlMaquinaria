@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('componentes', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre')->unique();
             $table->integer('tiempo_de_vida')->nullable(); // Tiempo de vida en horas o días
             $table->enum('estado', ['funcionando', 'mantenimiento', 'fuera_de_servicio'])->default('funcionando');
             $table->foreignId('maquinaria_id')->constrained('maquinarias')->onDelete('cascade'); // Relación con Maquinaria

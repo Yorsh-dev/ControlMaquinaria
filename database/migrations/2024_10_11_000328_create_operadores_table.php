@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nombre', 50);
             $table->string('apellido', 50);
             $table->string('email')->unique();
-            $table->string('telefono', 15)->nullable();;
+            $table->string('telefono', 30)->nullable();;
             $table->enum('estado', ['operativo', 'fuera_servicio'])->default('operativo');
             $table->timestamps();
         });
@@ -26,6 +26,7 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void
+
     {
         Schema::dropIfExists('operadores');
     }
