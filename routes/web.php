@@ -29,6 +29,8 @@ Route::controller(ComponentesController::class)->group(function() {
 });
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
 
 
 

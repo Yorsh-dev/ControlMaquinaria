@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contact Us</title>
-    <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <!-- ANIMATE CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <style>
         * {
@@ -42,7 +39,7 @@
         }
 
         .logo span {
-            color: #B70E21;
+            color: #efb810;
         }
 
         .contact-wrapper {
@@ -84,11 +81,11 @@
             background: none;
             outline: 0;
             color: #fff;
-            border-bottom: 1px solid #d63031;
+            border-bottom: 1px solid #efb810;
         }
 
         .contact-form form button {
-            background: #B70E21;
+            background: #efb810;
             border: 0;
             text-transform: uppercase;
             padding: 1em;
@@ -100,6 +97,24 @@
             color: #fff;
             transition: background-color 1s ease-out;
             outline: 0;
+        }
+
+        .alert {
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 5px;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
         }
 
         /* CONTACT INFO */
@@ -135,50 +150,67 @@
 <body>
     
     <div class="content">
-
-        <h1 class="logo">Contact <span>Us</span></h1>
+        <h1 class="logo">Contáctanos <span>UwU</span></h1>
 
         <div class="contact-wrapper animated bounceInUp">
             <div class="contact-form">
-                <h3>Contact us</h3>
-                <form action="" method="POST">
+                <h3>Contáctanos</h3>
+
+                <!-- Mensajes de error y éxito -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                <form action="{{ route('contact.send') }}" method="POST">
                     @csrf
                     <p>
-                        <label>Full Name</label>
+                        <label>Nombre Completo</label>
                         <input type="text" name="fullname" required>
                     </p>
                     <p>
-                        <label>Email Address</label>
+                        <label>Email</label>
                         <input type="email" name="email" required>
                     </p>
                     <p>
-                        <label>Phone Number</label>
-                        <input type="tel" name="phone" required>
+                        <label>Número celular</label>
+                        <input type="tel" name="phone" pattern="[0-9]*" required title="Solo se permiten números.">
                     </p>
                     <p>
-                        <label>Affair</label>
+                        <label>Interés</label>
                         <input type="text" name="affair" required>
                     </p>
                     <p class="block">
-                       <label>Message</label> 
+                       <label>Mensaje</label> 
                         <textarea name="message" rows="3" required></textarea>
                     </p>
                     <p class="block">
                         <button type="submit">
-                            Send
+                            ENVIAR
                         </button>
                     </p>
                 </form>
             </div>
             <div class="contact-info">
-                <h4>More Info</h4>
+                <h4>Más Información</h4>
                 <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Baker Street</li>
-                    <li><i class="fas fa-phone"></i> (111) 111 111 111</li>
-                    <li><i class="fas fa-envelope-open-text"></i> contact@website.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jr. Las Huainitas 123</li>
+                    <li><i class="fas fa-phone"></i> 964605505 </li>
+                    <li><i class="fas fa-envelope-open-text"></i> tupapimasna@gmail.com </li>
                 </ul>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero provident ipsam necessitatibus repellendus?</p>
-                <p>Company.com</p>
+                <p>Estamos al tanto de sus peticiones y necesidades, las consultas serán atendidas en un periodo de 8 días hábiles</p>
+                <p>MaquinaAlquiler-Contral.com</p>
             </div>
         </div>
 
