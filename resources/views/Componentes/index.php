@@ -15,6 +15,7 @@
 
         h1 {
             color: #007bff; /* Azul oscuro */
+            margin-top: 20px;
         }
 
         .btn-success {
@@ -46,12 +47,29 @@
             vertical-align: middle;
         }
 
-        .btn-secondary, .btn-success, .btn-danger, .btn-back {
+        .btn-secondary, .btn-success, .btn-danger {
             margin-top: 10px;
         }
 
         .btn-back {
             margin-top: 15px;
+        }
+
+        .thead-dark {
+            background-color: #343a40; /* Color de fondo para el encabezado */
+            color: white; /* Color de texto para el encabezado */
+        }
+
+        /* Estilo de tabla para mayor claridad */
+        .table {
+            background-color: white; /* Fondo blanco para la tabla */
+            border-radius: 8px; /* Bordes redondeados */
+            overflow: hidden; /* Para redondear esquinas */
+        }
+
+        /* Efecto hover para filas de tabla */
+        .table tr:hover {
+            background-color: #f1f1f1; /* Color de fondo al pasar el mouse */
         }
     </style>
 </head>
@@ -93,7 +111,7 @@
             </tbody>
         </table>
 
-        <!-- Botón para agregar nuevo componente -->
+        <!-- Botón para agregar nuevos componentes -->
         <a href="componentes/create" class="btn btn-success">
             <i class="fas fa-plus"></i> Añadir Nuevo Componente
         </a>
@@ -107,4 +125,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
