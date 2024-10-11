@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('operadors', function (Blueprint $table) {
+        Schema::create('operadores', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('apellido');
+            $table->string('nombre', 50);
+            $table->string('apellido', 50);
             $table->string('email')->unique();
-            $table->string('telefono')->nullable();
-            $table->string('estado')->nullable();
+            $table->string('telefono', 15)->nullable();;
             $table->enum('estado', ['operativo', 'fuera_servicio'])->default('operativo');
             $table->timestamps();
         });
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('operadors');
+        Schema::dropIfExists('operadores');
     }
 };

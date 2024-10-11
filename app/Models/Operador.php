@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Operador extends Model
 {
     use HasFactory;
+    protected $table = 'operadores';
 
     protected $fillable = [
         'nombre',
@@ -15,6 +16,10 @@ class Operador extends Model
         'email',
         'telefono',
         'estado',
+    ];
+
+    protected $casts = [
+        'estado' => 'string',
     ];
 
     public function maquinarias()

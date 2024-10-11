@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('tipo_combustible');
             $table->decimal('precio_por_hora', 10, 2);
             $table->enum('estado', ['operativa', 'mantenimiento', 'fuera_servicio'])->default('operativa');
-            $table->string('ubicacion')->nullable();
+            $table->string('ubicacion_actual')->nullable();
             $table->integer('horas_uso')->nullable();
-            $table->foreignId('responsable_id')->nullable()->constrained('users');
+            $table->foreignId('operador_id')->nullable()->constrained('operadores')->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -35,3 +35,4 @@ return new class extends Migration
         Schema::dropIfExists('maquinarias');
     }
 };
+

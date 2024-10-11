@@ -16,9 +16,14 @@ class Maquinaria extends Model
         'tipo_combustible',
         'precio_por_hora',
         'estado',
-        'ubicacion',
+        'ubicacion_actual',
         'horas_uso',
         'operador_id',
+    ];
+
+    protected $casts = [
+        'precio_por_hora' => 'decimal:2',
+        'horas_uso' => 'integer',
     ];
 
     public function operador()
@@ -26,3 +31,4 @@ class Maquinaria extends Model
         return $this->belongsTo(Operador::class, 'operador_id');
     }
 }
+
