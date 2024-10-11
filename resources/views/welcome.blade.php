@@ -6,7 +6,7 @@
     <title>Sistema de Control de Maquinaria</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display+swap')';'
+        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
         /* Asegurar que el margen y padding sean cero para todos los elementos */
         * {
             margin: 0;
@@ -51,7 +51,7 @@
             list-style: none;
         }
 
-        header ul li{
+        header ul li a{
             display: inline-block;
             color: #333;
             font-weight: 400;
@@ -59,7 +59,90 @@
             text-decoration: none;
         }
 
+        .content
+        {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content .textBox
+        {
+            position: relative;
+            max-width: 600px;
+        }
+
+        .content .textBox h2
+        {
+            color: #333;
+            font-size: 4em;
+            line-height: 1.4em;
+            font-weight: 500;
+        }
+
+        .content .textBox h2 span
+        {
+            color: #efb810;
+            font-size: 1.2em;
+            font-weight: 900;
+        }
+
+        .content .textBox p
+        {
+            color: #333;
+        }
+
+        .content .textBox a
+        {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 20px;
+            background: #efb810;
+            color: #fff;
+            border-radius: 40px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .content .imgBox
+        {
+            width: 600px;
+            display: flex;
+            justify-content: flex-start;
+            padding-right: 800px;
+            margin-top: 50px;
+        }
+
+        .content .imgBox img
+        {
+            max-width: 1200px;
+        }
+
+        /*
+        .sectors
+        {
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            display: flex;
+            max-width: 30px;
+        }
+
+        .sectors li
+        {
+            list-style: none;
+            display: inline-block;
+            margin-bottom: 0 20px;
+            cursor: pointer;
+            max-width: 3px;
+        }
+
         /* Footer */
+        /*
         footer {
             text-align: center;
             padding: 20px;
@@ -68,6 +151,7 @@
             font-size: 14px;
             width: 100%;
         }
+        */
     </style>
 </head>
 <body>
@@ -78,9 +162,9 @@
 
             <!-- Título y subtítulo centrados -->
             <ul>
-                <li><a href="maquinas" class="btn"><i class="fas fa-cogs"></i> Ir a Gestión de Máquinas</a></li>
-                <li><a href="operadores" class="btn"><i class="fas fa-users"></i> Ir a Gestión de Operadores</a></li>
-                <li><a href="componentes" class="btn"><i class="fas fa-wrench"></i> Ir a Gestión de Componentes</a></li>
+                <li><a href="maquinas" class="btn">Ir a Gestión de Máquinas</a></li>
+                <li><a href="operadores" class="btn">Ir a Gestión de Operadores</a></li>
+                <li><a href="componentes" class="btn">Ir a Gestión de Componentes</a></li>
             </ul>
         </header>
         <div class="content">
@@ -90,10 +174,19 @@
                 <a href="#">Contáctanos</a>
             </div>
             <div class="imgBox">
-                <img src="imgMaqui.png" class="Yorsh">
+                <img src="{{ asset('images/imgPri.png') }}" class="Yorsh">
+            </div>
+        </div>
+        <!--
+        <ul class="sectors">
+            <li><img src="{{ asset('images/imgEsc.png') }}"></li>
+            <li><img src="{{ asset('images/imgRod.png') }}"></li>
+            <li><img src="{{ asset('images/imgCam.png') }}"></li>
+        </ul>
         <footer>
             © 2024 - Sistema de Control de Maquinaria
         </footer>
+        -->
     </section>
 </body>
 </html>
