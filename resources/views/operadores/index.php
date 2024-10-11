@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: bold;
             background-color: #f4f7f9;
             margin: 0;
             padding: 0;

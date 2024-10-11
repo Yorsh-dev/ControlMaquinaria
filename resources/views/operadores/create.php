@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Gill Sans', sans-serif;
+            font-weight: bold;
             background-color: #f4f7f9;
             margin: 0;
             padding: 0;
@@ -94,19 +95,25 @@
             @csrf
 
             <label for="id">ID del Operador</label>
-            <input type="text" id="id" name="id" placeholder="Ej. 001" required>
+            <input type="text" id="id" name="id" placeholder="Ej. OP001" required>
 
             <label for="nombre">Nombre del Operador</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan" required>
 
-            <label for="maquinas_asignadas">Máquinas Asignadas</label>
-            <input type="text" id="maquinas_asignadas" name="maquinas_asignadas" placeholder="Ej. Excavadora 3000, Cargadora X200" required>
+            <label for="maquinas_asignadas">Apellido del Operador</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Ej. Perez" required>
 
-            <label for="certificaciones">Certificaciones</label>
-            <input type="text" id="certificaciones" name="certificaciones" placeholder="Ej. Certificación de Operador de Excavadora" required>
+            <label for="certificaciones">Email del Operador</label>
+            <input type="text" id="email" name="email" placeholder="Ej. jperez@gmail.com" required>
 
-            <label for="ultima_asignacion">Última Asignación</label>
-            <input type="date" id="ultima_asignacion" name="ultima_asignacion" required>
+            <label for="telefono">Teléfono del Operador</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Ej. 987654321" required pattern="[0-9]{9}">
+
+            <label for="estado">Estado del Operador</label>
+            <select id="estado" name="estado" required>
+                <option value="operativo">Operativo</option>
+                <option value="fuera_servicio">Fuera de servicio</option>
+            </select>
 
             <button type="submit" class="btn"><i class="fas fa-save"></i> Guardar Operador</button>
         </form>
