@@ -6,15 +6,18 @@
     <title>Agregar Nueva Máquina</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7f9;
+            font-family: 'Poppins', sans-serif;
+            background-color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #007bff;
+            background-color: #efb810;
+            font-weight: bold;
             color: white;
             padding: 20px;
             text-align: center;
@@ -55,7 +58,7 @@
         }
 
         .btn {
-            background-color: #28a745;
+            background-color: #efb810;
             color: white;
             padding: 12px;
             border: none;
@@ -67,16 +70,17 @@
         }
 
         .btn:hover {
-            background-color: #218838;
+            background-color: #333;
         }
 
         .back-btn {
-            background-color: #6c757d;
+            background-color: #333;
             margin-top: 10px;
         }
 
         .back-btn:hover {
-            background-color: #5a6268;
+            background-color: #fff;
+            color: #333;
         }
     </style>
 </head>
@@ -96,9 +100,9 @@
             <label for="nombre">Nombre de la Máquina</label>
             <input type="text" id="nombre" name="nombre" placeholder="Ej. Excavadora 3000" required>
 
-            <label for="tipo">Tipo de Máquina</label>
+            <label for="tipo">Modelo de Máquina</label>
             <select id="tipo" name="tipo" required>
-                <option value="">Seleccionar tipo</option>
+                <option value="">Seleccionar modelo</option>
                 <option value="Excavadora">Excavadora</option>
                 <option value="Cargadora">Cargadora</option>
                 <option value="Bulldozer">Bulldozer</option>
@@ -106,14 +110,17 @@
                 <!-- Agrega más opciones según sea necesario -->
             </select>
 
+            <label for="descripcion">Marca de Máquina</label>
+            <input type="text" id="marca" name="marca" placeholder="Ej. Caterpillar" required>
+
+            <label for="descripcion">Serie de Máquina</label>
+            <input type="text" id="serie" name="serie" placeholder="Ej. CAT00F32PWGE23 " required>
+
             <label for="estado">Estado</label>
             <select id="estado" name="estado" required>
                 <option value="activa">Activa</option>
                 <option value="inactiva">Inactiva</option>
             </select>
-
-            <label for="descripcion">Descripción</label>
-            <input type="text" id="descripcion" name="descripcion" placeholder="Ej. Máquina en perfecto estado" required>
 
             <button type="submit" class="btn"><i class="fas fa-save"></i> Guardar Máquina</button>
         </form>

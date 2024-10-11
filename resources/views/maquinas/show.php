@@ -6,15 +6,18 @@
     <title>Detalles de la Máquina</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+        
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7f9;
+            font-family: 'Poppins', sans-serif;
+            background-color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #007bff;
+            background-color: #efb810;
+            font-weight: bold;
             color: white;
             padding: 20px;
             text-align: center;
@@ -82,11 +85,12 @@
         }
 
         .back-btn {
-            background-color: #6c757d;
+            background-color: #333;
         }
 
         .back-btn:hover {
-            background-color: #5a6268;
+            background-color: #fff;
+            color: #333;
         }
     </style>
 </head>
@@ -99,16 +103,37 @@
         <h2>{{ $maquina->nombre }}</h2>
 
         <div class="details">
-            <label>Tipo de Máquina:</label>
-            <p>{{ $maquina->tipo }}</p>
+            <label>Marca:</label>
+            <p>{{ $maquina->marca }}</p>
+
+            <label>Modelo de Máquina:</label>
+            <p>{{ $maquina->modelo }}</p>
+
+            <label>Serie:</label>
+            <p>{{ $maquina->serie }}</p>
+
+            <label>Tipo de tipo_combustible:</label>
+            <p>{{ $maquina->tipo_combustible }}</p>
+
+            <label>Precio por Hora:</label>
+            <p>{{ $maquina->precio_por_hora }}</p>
+
+            <label>Serie:</label>
+            <p>{{ $maquina->serie }}</p>
 
             <label>Estado:</label>
             <p class="{{ $maquina->estado == 'activa' ? 'status-active' : 'status-inactive' }}">
                 {{ ucfirst($maquina->estado) }}
             </p>
 
-            <label>Descripción:</label>
-            <p>{{ $maquina->descripcion }}</p>
+            <label>Ubicación Actual:</label>
+            <p>{{ $maquina->ubicacion_actual }}</p>
+
+            <label>Horas Usadas:</label>
+            <p>{{ $maquina->horas_uso }}</p>
+
+            <label>Operador Encargado:</label>
+            <p>{{ $maquina->operador_id }}</p>
         </div>
 
         <a href="/ControlMaquinaria/public/maquinas" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>

@@ -6,16 +6,18 @@
     <title>Control de Operadores de Maquinaria</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+        
         body {
-            font-family: 'Gill Sans', sans-serif;
-            font-weight: bold;
-            background-color: #f4f7f9;
+            font-family: 'Poppins', sans-serif;
+            background-color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #007bff;
+            background-color: #efb810;
+            font-weight: bold;
             color: white;
             padding: 20px;
             text-align: center;
@@ -44,16 +46,16 @@
         .operator-list th, .operator-list td {
             padding: 12px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #333;
         }
 
         .operator-list th {
-            background-color: #007bff;
+            background-color: #333;
             color: white;
         }
 
         .btn {
-            background-color: #28a745;
+            background-color: #333;
             color: white;
             padding: 10px 15px;
             border: none;
@@ -67,16 +69,55 @@
         }
 
         .btn:hover {
-            background-color: #218838;
+            background-color: #fff;
+            color: #333;
         }
 
         .back-btn {
-            background-color: #007bff;
+            background-color: #333;
             margin-bottom: 20px;
         }
 
         .back-btn i {
             margin-right: 5px;
+        }
+
+        .actions .btn-view {
+            background-color: #333;
+        }
+
+        .actions .btn-edit {
+            background-color: #333;
+        }
+
+        .actions .btn-delete {
+            background-color: #333;
+        }
+
+        .actions .btn-view:hover {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .actions .btn-edit:hover {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .actions .btn-delete:hover {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .btn-back {
+            background-color: #333;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-back:hover {
+            background-color: #fff;
+            color: #333;
         }
     </style>
 </head>
@@ -108,9 +149,9 @@
                     <td>Excavadora 3000, Cargadora X200</td>
                     <td>Certificación de Operador de Excavadora</td>
                     <td>01/09/2024</td>
-                    <td>
-                        <a href="/operadores/1/edit" class="btn">Editar</a>
-                        <a href="/operadores/1" class="btn">Ver</a>
+                    <td class="actions">
+                        <a href="operadores/1" class="btn btn-view"><i class="fas fa-eye"></i></a>
+                        <a href="operadores/1/edit" class="btn btn-edit"><i class="fas fa-edit"></i></a>
                     </td>
                 </tr>
                 <tr>
@@ -119,9 +160,9 @@
                     <td>Retroexcavadora B150</td>
                     <td>Certificación de Seguridad Industrial</td>
                     <td>15/09/2024</td>
-                    <td>
-                        <a href="/operadores/2/edit" class="btn">Editar</a>
-                        <a href="/operadores/2" class="btn">Ver</a>
+                    <td class="actions">
+                        <a href="operadores/2" class="btn btn-view"><i class="fas fa-eye"></i></a>
+                        <a href="operadores/2/edit" class="btn btn-edit"><i class="fas fa-edit"></i></a>
                     </td>
                 </tr>
                 <tr>
@@ -130,9 +171,9 @@
                     <td>Bulldozer D450</td>
                     <td>Certificación de Operador de Bulldozer</td>
                     <td>20/09/2024</td>
-                    <td>
-                        <a href="/operadores/3/edit" class="btn">Editar</a>
-                        <a href="/operadores/3" class="btn">Ver</a>
+                    <td class="actions">
+                        <a href="operadores/3" class="btn btn-view"><i class="fas fa-eye"></i></a>
+                        <a href="operadores/3/edit" class="btn btn-edit"><i class="fas fa-edit"></i></a>
                     </td>
                 </tr>
                 <!-- Agrega más filas según sea necesario -->

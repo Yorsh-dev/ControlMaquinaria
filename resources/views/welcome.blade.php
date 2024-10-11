@@ -218,8 +218,8 @@
         </header>
         <div class="content">
             <div class="textBox">
-                <h2>Sistema de Control de Maquinaria<br> YOYO <span>GOD</span></h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, similique. Tempore, corrupti repellendus. Deleniti quia tenetur autem nulla magni, praesentium necessitatibus impedit ipsum modi perferendis.</p>
+                <h2>Sistema de Control de Maquinaria<br> EL <span>YORSH</span></h2>
+                <p>Somos una empresa comprometida con el cliente, siempre cumpliendo con las expectativas propuestas y con atención al cliente amigable.</p>
                 <a href="#">Contáctanos</a>
             </div>
             <div class="imgBox">

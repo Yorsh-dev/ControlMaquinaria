@@ -6,15 +6,18 @@
     <title>Detalles del Operador</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+        
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7f9;
+            font-family: 'Poppins', sans-serif;
+            background-color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #007bff;
+            background-color: #efb810;
+            font-weight: bold;
             color: white;
             padding: 20px;
             text-align: center;
@@ -51,7 +54,7 @@
         }
 
         .search-form button {
-            background-color: #007bff;
+            background-color: #efb810;
             color: white;
             padding: 10px 15px;
             border: none;
@@ -61,7 +64,7 @@
         }
 
         .search-form button:hover {
-            background-color: #0056b3;
+            background-color: #333;
         }
 
         .details {
@@ -98,15 +101,16 @@
         }
 
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #333;
         }
 
         .back-btn {
-            background-color: #6c757d;
+            background-color: #333;
         }
 
         .back-btn:hover {
-            background-color: #5a6268;
+            background-color: #fff;
+            color: #333;
         }
     </style>
 </head>
@@ -117,31 +121,29 @@
 
     <div class="container">
         <div class="search-form">
-            <form action="/operadores/buscar" method="GET">
+            <form action="operadores/buscar" method="GET">
                 <input type="text" name="id" placeholder="Buscar por ID del Operador" required>
                 <button type="submit"><i class="fas fa-search"></i> Buscar</button>
             </form>
         </div>
 
-        @if(isset($operador))
             <h2>{{ $operador->nombre }}</h2>
 
             <div class="details">
-                <label>ID del Operador:</label>
-                <p>{{ $operador->id }}</p>
+                <label>Apellido:</label>
+                <p>{{ $operador->apellido }}</p> <!-- Asumiendo que es un array -->
 
-                <label>Máquinas Asignadas:</label>
-                <p>{{ implode(', ', $operador->maquinas_asignadas) }}</p> <!-- Asumiendo que es un array -->
+                <label>Email:</label>
+                <p>{{ $operador->email }}</p> <!-- Asumiendo que es un array -->
 
-                <label>Certificaciones:</label>
-                <p>{{ implode(', ', $operador->certificaciones) }}</p> <!-- Asumiendo que es un array -->
+                <label>Teléfono:</label>
+                <p>{{ $operador->telefono }}</p>
 
-                <label>Última Asignación:</label>
-                <p>{{ $operador->ultima_asignacion }}</p>
+                <label>Estado:</label>
+                <p class="{{ $operador->estado == 'activa' ? 'status-active' : 'status-inactive' }}">
+                    {{ ucfirst($maquina->estado) }}
+                </p>
             </div>
-        @else
-            <h2>No se encontraron resultados.</h2>
-        @endif
 
         <a href="/ControlMaquinaria/public/operadores" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
     </div>

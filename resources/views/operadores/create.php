@@ -6,16 +6,18 @@
     <title>Agregar Nuevo Operador</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
         body {
-            font-family: 'Gill Sans', sans-serif;
-            font-weight: bold;
-            background-color: #f4f7f9;
+            font-family: 'Poppins', sans-serif;
+            background-color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #007bff;
+            background-color: #efb810;
+            font-weight: bold;
             color: white;
             padding: 20px;
             text-align: center;
@@ -56,7 +58,7 @@
         }
 
         .btn {
-            background-color: #28a745;
+            background-color: #efb810;
             color: white;
             padding: 12px;
             border: none;
@@ -68,16 +70,17 @@
         }
 
         .btn:hover {
-            background-color: #218838;
+            background-color: #333;
         }
 
         .back-btn {
-            background-color: #6c757d;
+            background-color: #333;
             margin-top: 10px;
         }
 
         .back-btn:hover {
-            background-color: #5a6268;
+            background-color: #fff;
+            color: #333;
         }
     </style>
 </head>
