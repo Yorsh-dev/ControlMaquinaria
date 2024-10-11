@@ -23,7 +23,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #fff;
+            background: #333;
         }
 
         header {
@@ -53,7 +53,7 @@
 
         header ul li a{
             display: inline-block;
-            color: #333;
+            color: #fff;
             font-weight: 400;
             margin-left: 40px;
             text-decoration: none;
@@ -76,7 +76,7 @@
 
         .content .textBox h2
         {
-            color: #333;
+            color: #fff;
             font-size: 4em;
             line-height: 1.4em;
             font-weight: 500;
@@ -91,7 +91,7 @@
 
         .content .textBox p
         {
-            color: #333;
+            color: #fff;
         }
 
         .content .textBox a
@@ -112,7 +112,7 @@
             width: 600px;
             display: flex;
             justify-content: flex-start;
-            padding-right: 800px;
+            padding-right: 700px;
             margin-top: 50px;
         }
 
@@ -137,11 +137,56 @@
             display: inline-block;
             margin-bottom: 0 20px;
             cursor: pointer;
+            transition: 0.5%;
+        }
+
+        .sectors li:hover
+        {
+            transform: translateY(-15px);
         }
 
         .sectors li img
         {
             max-width: 100px;
+        }
+
+        /*
+        .sci
+        {
+            position: absolute;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .sci li
+        {
+            list-style: none;
+        }
+
+        .sci li a
+        {
+            display: inline-block;
+            margin: 1px 0;
+            transform: scale(0.05);
+            max-width: 120px;
+            filter: invert(1);
+        }
+        */
+
+        .circle
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #efb810;
+            clip-path: circle(600px at right 800px);
         }
 
         /* Footer */
@@ -159,6 +204,7 @@
 </head>
 <body>
     <section>
+        <div class="circle"></div>
         <header>
             <!-- Logo en la parte izquierda -->
             <a href="#"><img src="{{ asset('images/LOGO2.png') }}" class="logo"></a>
@@ -177,19 +223,37 @@
                 <a href="#">Contáctanos</a>
             </div>
             <div class="imgBox">
-                <img src="{{ asset('images/imgRod.png') }}" class="Yorsh">
+                <img src="{{ asset('images/img1.png') }}" class="Yorsh">
             </div>
         </div>
         <ul class="sectors">
-            <li><img src="{{ asset('images/imgEsc.png') }}"></li>
-            <li><img src="{{ asset('images/imgCam.png') }}"></li>
-            <li><img src="{{ asset('images/imgPri.png') }}"></li>
+            <li><img src="{{ asset('images/imgEsc.png') }}" onclick="imgSlider('img1.png');changeCircleColor('#000')"></li>
+            <li><img src="{{ asset('images/imgPri.png') }}" onclick="imgSlider('img2.png');changeCircleColor('#333')"></li>
+            <li><img src="{{ asset('images/imgCam.png') }}" onclick="imgSlider('img3.png');changeCircleColor('#fff')"></li>
         </ul>
         <!--
+        <ul class="sci">
+            <li><a href="#"><img src="{{ asset('images/imgFace.png') }}"></a></li>
+            <li><a href="#"><img src="{{ asset('images/imgInst.png') }}"></a></li>
+            <li><a href="#"><img src="{{ asset('images/imgWhat.png') }}"></a></li>
+        </ul>
         <footer>
             © 2024 - Sistema de Control de Maquinaria
         </footer>
         -->
     </section>
+
+    <script type="text/javascript">
+        function imgSlider(anything)
+        {
+            document.querySelector('.yorsh').src = anything;
+        }
+
+        function changeCircleColor(color)
+        {
+            const circle = document.querySelector('.circle');
+            circle.style.background = color;
+        }
+    </script>
 </body>
 </html>
