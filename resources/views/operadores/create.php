@@ -92,7 +92,6 @@
 
         <form action="/operadores" method="POST">
             <!-- Laravel CSRF Protection -->
-            @csrf
 
             <label for="id">ID del Operador</label>
             <input type="text" id="id" name="id" placeholder="Ej. OP001" required>

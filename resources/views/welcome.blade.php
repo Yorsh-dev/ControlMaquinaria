@@ -6,100 +6,57 @@
     <title>Sistema de Control de Maquinaria</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display+swap')';'
         /* Asegurar que el margen y padding sean cero para todos los elementos */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            color: white;
-            height: 100%;
+        section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            padding: 100px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
         }
 
-        /* Fondo difuminado */
-        body::before {
-            content: '';
-            position: fixed;
+        header {
+            position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://static.vecteezy.com/system/resources/previews/008/922/022/non_2x/gradient-black-background-with-angle-shapes-texture-illustration-vector.jpg') no-repeat center center fixed;
-            background-size: cover;
-            filter: blur(1px); /* Difumina solo el fondo */
-            z-index: -1; /* Coloca el fondo detrás del contenido */
-        }
-
-        /* Encabezado */
-        header {
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
-            padding: 20px;
             width: 100%;
-            text-align: center;
-        }
-
-        header img {
-            width: 150px; /* Ajusta el tamaño del logo */
-            height: auto;
-        }
-
-        header h1 {
-            font-size: 48px;
-            margin: 0;
-            color: #fff;
-        }
-
-        header p {
-            font-size: 18px;
-            margin-top: 10px;
-            color: #fff;
-        }
-
-        /* Contenido */
-        .content {
+            padding: 20px 100px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            flex: 1;
-            text-align: center;
         }
 
-        .content h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
+        header .logo {
+            position: absolute;
+            max-width: 80px;
         }
 
-        .content p {
-            font-size: 18px;
-            line-height: 1.5;
+        header ul {
+            position: relative;
+            display: flex;
         }
 
-        .btn-container {
-            margin-top: 30px;
+        header ul li{
+            list-style: none;
         }
 
-        /* Botones con el color #E0E0D1 */
-        .btn {
-            background-color: #E0E0D1;
-            color: black;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        header ul li{
+            display: inline-block;
+            color: #333;
+            font-weight: 400;
+            margin-left: 40px;
             text-decoration: none;
-            font-size: 18px;
-            margin: 10px;
-        }
-
-        .btn:hover {
-            background-color: #d6d6c2;
         }
 
         /* Footer */
@@ -114,37 +71,29 @@
     </style>
 </head>
 <body>
+    <section>
+        <header>
+            <!-- Logo en la parte izquierda -->
+            <a href="#"><img src="{{ asset('images/LOGO2.png') }}" class="logo"></a>
 
-    <header>
-        <!-- Logo en la parte izquierda -->
-        <img src="{{ asset('images/LOGO2.png') }}" alt="Logo de la empresa">
-
-
-        <!-- Título y subtítulo centrados -->
-        <div>
-            <h1>Sistema de Control de Maquinaria</h1>
-            <p>Gestión eficiente de maquinaria pesada</p>
-        </div>
-    </header>
-
-    <div class="content">
-        <div>
-            <h2>Bienvenido a la Plataforma</h2>
-            <p>
-                Administra de manera eficiente el estado y la operación de tu maquinaria. <br>
-                Este sistema te permite tener un control detallado sobre todas las máquinas en operación, su estado, y sus registros de mantenimiento.
-            </p>
-            <div class="btn-container">
-                <a href="maquinas" class="btn"><i class="fas fa-cogs"></i> Ir a Gestión de Máquinas</a>
-                <a href="operadores" class="btn"><i class="fas fa-users"></i> Ir a Gestión de Operadores</a>
-                <a href="componentes" class="btn"><i class="fas fa-wrench"></i> Ir a Gestión de Componentes</a>
+            <!-- Título y subtítulo centrados -->
+            <ul>
+                <li><a href="maquinas" class="btn"><i class="fas fa-cogs"></i> Ir a Gestión de Máquinas</a></li>
+                <li><a href="operadores" class="btn"><i class="fas fa-users"></i> Ir a Gestión de Operadores</a></li>
+                <li><a href="componentes" class="btn"><i class="fas fa-wrench"></i> Ir a Gestión de Componentes</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>Sistema de Control de Maquinaria<br> YOYO <span>GOD</span></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, similique. Tempore, corrupti repellendus. Deleniti quia tenetur autem nulla magni, praesentium necessitatibus impedit ipsum modi perferendis.</p>
+                <a href="#">Contáctanos</a>
             </div>
-        </div>
-    </div>
-
-    <footer>
-        © 2024 - Sistema de Control de Maquinaria
-    </footer>
-
+            <div class="imgBox">
+                <img src="imgMaqui.png" class="Yorsh">
+        <footer>
+            © 2024 - Sistema de Control de Maquinaria
+        </footer>
+    </section>
 </body>
 </html>
