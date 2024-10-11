@@ -31,5 +31,12 @@ class OperadorSeeder extends Seeder
             'telefono' => '987654321',
             'estado' => 'operativo',
         ]);
+        Operador::create([
+            'nombre' => 'Alfredo',
+            'apellido' => 'Ochoa',
+            'email' => 'Ochoa@gmail.com',
+            'telefono' => '987987962',
+            'estado' => 'operativo',
+        ]);
     }
 }

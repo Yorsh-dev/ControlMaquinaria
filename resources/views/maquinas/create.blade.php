@@ -6,7 +6,7 @@
     <title>Agregar Nueva Máquina</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -93,37 +93,46 @@
     <div class="container">
         <h2>Formulario de Nueva Máquina</h2>
 
-        <form action="/maquinas" method="POST">
-            <!-- Laravel CSRF Protection -->
+        <form action="{{ route('maquinas.store') }}" method="POST">
             @csrf
-
             <label for="nombre">Nombre de la Máquina</label>
             <input type="text" id="nombre" name="nombre" placeholder="Ej. Excavadora 3000" required>
-
-            <label for="tipo">Modelo de Máquina</label>
-            <select id="tipo" name="tipo" required>
-                <option value="">Seleccionar modelo</option>
-                <option value="Excavadora">Excavadora</option>
-                <option value="Cargadora">Cargadora</option>
-                <option value="Bulldozer">Bulldozer</option>
-                <option value="Grúa">Grúa</option>
-                <!-- Agrega más opciones según sea necesario -->
-            </select>
-
-            <label for="descripcion">Marca de Máquina</label>
+        
+            <label for="marca">Marca de Máquina</label>
             <input type="text" id="marca" name="marca" placeholder="Ej. Caterpillar" required>
+        
+            <label for="modelo">Modelo de Máquina</label>
+            <input type="text" id="modelo" name="modelo" placeholder="Ej. 3000" required>
+        
+            <label for="serie">Serie de Máquina</label>
+            <input type="text" id="serie" name="serie" placeholder="Ej. CAT00F32PWGE23" required>
+        
+            <label for="tipo_combustible">Tipo de Combustible</label>
+            <input type="text" id="tipo_combustible" name="tipo_combustible" placeholder="Ej. Diesel" required>
 
-            <label for="descripcion">Serie de Máquina</label>
-            <input type="text" id="serie" name="serie" placeholder="Ej. CAT00F32PWGE23 " required>
-
+        
+            <label for="precio_por_hora">Precio por Hora</label>
+            <input type="number" id="precio_por_hora" name="precio_por_hora" step="0.01" placeholder="Ej. 50.00" required>
+        
             <label for="estado">Estado</label>
             <select id="estado" name="estado" required>
-                <option value="activa">Activa</option>
-                <option value="inactiva">Inactiva</option>
+                <option value="operativa">Operativa</option>
+                <option value="mantenimiento">Mantenimiento</option>
+                <option value="fuera_servicio">Fuera de Servicio</option>
             </select>
-
+        
+            <label for="ubicacion_actual">Ubicación Actual</label>
+            <input type="text" id="ubicacion_actual" name="ubicacion_actual" placeholder="Ej. Taller 1" required>
+        
+            <label for="horas_uso">Horas Usadas</label>
+            <input type="number" id="horas_uso" name="horas_uso" placeholder="Ej. 100" required>
+        
+            <label for="operador_id">Operador Encargado (ID)</label>
+            <input type="number" id="operador_id" name="operador_id" placeholder="Ej. 1" required>
+        
             <button type="submit" class="btn"><i class="fas fa-save"></i> Guardar Máquina</button>
         </form>
+        
 
         <a href="/ControlMaquinaria/public/maquinas" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
     </div>
