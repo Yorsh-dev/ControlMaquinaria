@@ -30,5 +30,10 @@ class Maquinaria extends Model
     {
         return $this->belongsTo(Operador::class, 'operador_id');
     }
+
+    public function componentes()
+{
+    return $this->hasMany(Componente::class, 'maquinaria_id');
+}
 }
 

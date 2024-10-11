@@ -23,5 +23,13 @@ class OperadorSeeder extends Seeder
             'telefono' => '123456789',
             'estado' => 'operativo', // Valor por defecto "operativo"
         ]);
+
+        Operador::create([
+            'nombre' => 'Carlos',
+            'apellido' => 'Ramirez',
+            'email' => 'carlos.ramirez@example.com',
+            'telefono' => '987654321',
+            'estado' => 'operativo',
+        ]);
     }
 }
