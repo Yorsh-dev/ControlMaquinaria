@@ -164,7 +164,7 @@
         <a href="maquinas/create" class="btn" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Nueva Máquina</a>
 
         <!-- Botón para volver al inicio -->
-        <a href="/ControlMaquinaria/public/" class="btn btn-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+        <a href="/ControlMaquinaria/public/" class="btn btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
     </div>
 </body>
 </html>
