@@ -156,8 +156,16 @@
                     <td class="actions">
                         <a href="{{ url('maquinas/' . $maquinaria->id) }}" class="btn btn-view"><i class="fas fa-eye"></i> Ver</a>
                         <a href="{{ url('maquinas/' . $maquinaria->id . '/edit') }}" class="btn btn-edit"><i class="fas fa-edit"></i> Editar</a>
-                        <a href="#" class="btn btn-delete"><i class="fas fa-trash-alt"></i> Eliminar</a>
-                    </td>
+                        <a href="#" class="btn btn-delete" onclick="event.preventDefault(); 
+                        if(confirm('¿Estás seguro de que quieres eliminar esta máquina?')) { 
+                            document.getElementById('delete-form-{{ $maquinaria->id }}').submit(); 
+                        }">
+                        <i class="fas fa-trash-alt"></i> Eliminar
+                    </a>
+                    <form id="delete-form-{{ $maquinaria->id }}" action="{{ route('maquinas.destroy', $maquinaria->id) }}" method="POST" style="display: none;">
+                        @csrf
+                        @method('DELETE')
+                    </form>                    </td>
                 </tr>
                 @endforeach
             </tbody>

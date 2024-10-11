@@ -44,6 +44,8 @@ class MaquinasController extends Controller
 
     // Redirigir a la lista de máquinas con un mensaje de éxito
     return redirect()->route('maquinas.index')->with('success', 'Máquina agregada correctamente.');
+    return redirect()->route('maquinas.index')->with('success', 'Máquina eliminada con éxito');
+
 }
 
      // Mostrar los detalles de una máquina específica
@@ -55,4 +57,20 @@ class MaquinasController extends Controller
     // Devuelve la vista con la máquina
     return view('maquinas.show', compact('maquina'));
     }
+
+    public function edit($id)
+    {
+        $maquinaria = Maquinaria::findOrFail($id);
+        return view('maquinas.edit', compact('maquinaria'));
+    }
+
+    // Eliminar una máquina
+    public function destroy($id)
+    {
+        $maquinaria = Maquinaria::findOrFail($id);
+        $maquinaria->delete();
+
+        return redirect()->route('maquinas.index')->with('success', 'Máquina eliminada con éxito');
+    }
+
 }
