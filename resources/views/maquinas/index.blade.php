@@ -69,13 +69,18 @@
             background-color: #218838;
         }
 
-        .status-active {
-            color: #28a745;
+        .status-operativa {
+            color: #28a745; /* Verde */
             font-weight: bold;
         }
 
-        .status-inactive {
-            color: #dc3545;
+        .status-mantenimiento {
+            color: #fd7e14; /* Naranja */
+            font-weight: bold;
+        }
+
+        .status-fuera {
+            color: #dc3545; /* Rojo */
             font-weight: bold;
         }
 
@@ -137,30 +142,23 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($maquinarias as $maquinaria)
                 <tr>
-                    <td>1</td>
-                    <td>Excavadora 3000</td>
-                    <td>Excavadora</td>
-                    <td class="status-active">Activa</td>
+                    <td>{{ $maquinaria->id }}</td>
+                    <td>{{ $maquinaria->nombre }}</td>
+                    <td>{{ $maquinaria->tipo_combustible }}</td> <!-- Cambié 'tipo' por 'tipo_combustible' basado en tu migración -->
+                    <td class="{{ $maquinaria->estado == 'operativa' ? 'status-operativa' : ($maquinaria->estado == 'mantenimiento' ? 'status-mantenimiento' : 'status-fuera') }}">
+                        {{ $maquinaria->estado }}
+                    </td>
                     <td class="actions">
-                        <a href="maquinas/1" class="btn btn-view"><i class="fas fa-eye"></i> Ver</a>
-                        <a href="/maquinas/1/edit" class="btn btn-edit"><i class="fas fa-edit"></i> Editar</a>
+                        <a href="{{ url('maquinas/' . $maquinaria->id) }}" class="btn btn-view"><i class="fas fa-eye"></i> Ver</a>
+                        <a href="{{ url('maquinas/' . $maquinaria->id . '/edit') }}" class="btn btn-edit"><i class="fas fa-edit"></i> Editar</a>
                         <a href="#" class="btn btn-delete"><i class="fas fa-trash-alt"></i> Eliminar</a>
                     </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Cargadora X200</td>
-                    <td>Cargadora</td>
-                    <td class="status-inactive">Inactiva</td>
-                    <td class="actions">
-                        <a href="/maquinas/2" class="btn btn-view"><i class="fas fa-eye"></i> Ver</a>
-                        <a href="/maquinas/2/edit" class="btn btn-edit"><i class="fas fa-edit"></i> Editar</a>
-                        <a href="#" class="btn btn-delete"><i class="fas fa-trash-alt"></i> Eliminar</a>
-                    </td>
-                </tr>
-                <!-- Agrega más filas según sea necesario -->
+                @endforeach
             </tbody>
+
         </table>
 
         <a href="maquinas/create" class="btn" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Nueva Máquina</a>

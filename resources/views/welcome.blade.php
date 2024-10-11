@@ -220,7 +220,7 @@
             <div class="textBox">
                 <h2>Sistema de Control de Maquinaria<br> YOYO <span>GOD</span></h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, similique. Tempore, corrupti repellendus. Deleniti quia tenetur autem nulla magni, praesentium necessitatibus impedit ipsum modi perferendis.</p>
-                <a href="#">Contáctanos</a>
+                <a href="contact">Contáctanos</a>
             </div>
             <div class="imgBox">
                 <img src="{{ asset('images/img1.png') }}" class="Yorsh">

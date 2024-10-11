@@ -51,13 +51,18 @@
             margin: 5px 0;
         }
 
-        .status-active {
-            color: #28a745;
+        .status-operativa {
+            color: #28a745; /* Verde */
             font-weight: bold;
         }
 
-        .status-inactive {
-            color: #dc3545;
+        .status-mantenimiento {
+            color: #fd7e14; /* Naranja */
+            font-weight: bold;
+        }
+
+        .status-fuera {
+            color: #dc3545; /* Rojo */
             font-weight: bold;
         }
 
@@ -99,16 +104,37 @@
         <h2>{{ $maquina->nombre }}</h2>
 
         <div class="details">
-            <label>Tipo de Máquina:</label>
-            <p>{{ $maquina->tipo }}</p>
+            <label>ID:</label>
+            <p>{{ $maquina->id }}</p>
+
+            <label>Marca:</label>
+            <p>{{ $maquina->marca }}</p>
+
+            <label>Modelo:</label>
+            <p>{{ $maquina->modelo }}</p>
+
+            <label>Número de Serie:</label>
+            <p>{{ $maquina->serie }}</p>
+
+            <label>Tipo de Combustible:</label>
+            <p>{{ $maquina->tipo_combustible }}</p>
+
+            <label>Precio por Hora:</label>
+            <p>S/. {{ number_format($maquina->precio_por_hora, 2) }}</p>
 
             <label>Estado:</label>
-            <p class="{{ $maquina->estado == 'activa' ? 'status-active' : 'status-inactive' }}">
+            <p class="{{ $maquina->estado == 'operativa' ? 'status-operativa' : ($maquina->estado == 'mantenimiento' ? 'status-mantenimiento' : 'status-fuera') }}">
                 {{ ucfirst($maquina->estado) }}
             </p>
 
-            <label>Descripción:</label>
-            <p>{{ $maquina->descripcion }}</p>
+            <label>Ubicación Actual:</label>
+            <p>{{ $maquina->ubicacion_actual ?? 'No especificada' }}</p>
+
+            <label>Horas de Uso:</label>
+            <p>{{ $maquina->horas_uso ?? 'No especificadas' }}</p>
+
+            <label>ID del Operador:</label>
+            <p>{{ $maquina->operador_id ?? 'Sin asignar' }}</p>
         </div>
 
         <a href="/ControlMaquinaria/public/maquinas" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
