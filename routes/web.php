@@ -16,6 +16,7 @@ Route::controller(MaquinasController::class)->group(function()
     Route::get('maquinas/{idMaquinas}',[MaquinasController::class, 'show']);
     
 });   
+    Route::resource('maquinas', MaquinasController::class);
 
 Route::controller(OperadoresController::class)->group(function() {
     Route::get('operadores',[OperadoresController::class, 'index']);
