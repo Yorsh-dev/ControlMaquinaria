@@ -121,7 +121,7 @@
             max-width: 1200px;
         }
 
-        /*
+
         .sectors
         {
             position: absolute;
@@ -129,7 +129,6 @@
             bottom: 20px;
             transform: translateX(-50%);
             display: flex;
-            max-width: 30px;
         }
 
         .sectors li
@@ -138,7 +137,11 @@
             display: inline-block;
             margin-bottom: 0 20px;
             cursor: pointer;
-            max-width: 3px;
+        }
+
+        .sectors li img
+        {
+            max-width: 100px;
         }
 
         /* Footer */
@@ -174,15 +177,15 @@
                 <a href="#">Contáctanos</a>
             </div>
             <div class="imgBox">
-                <img src="{{ asset('images/imgPri.png') }}" class="Yorsh">
+                <img src="{{ asset('images/imgRod.png') }}" class="Yorsh">
             </div>
         </div>
-        <!--
         <ul class="sectors">
             <li><img src="{{ asset('images/imgEsc.png') }}"></li>
-            <li><img src="{{ asset('images/imgRod.png') }}"></li>
             <li><img src="{{ asset('images/imgCam.png') }}"></li>
+            <li><img src="{{ asset('images/imgPri.png') }}"></li>
         </ul>
+        <!--
         <footer>
             © 2024 - Sistema de Control de Maquinaria
         </footer>
