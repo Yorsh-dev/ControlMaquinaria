@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Maquinaria;
 use Illuminate\Http\Request;
 
 class MaquinasController extends Controller
@@ -10,9 +11,11 @@ class MaquinasController extends Controller
 
     public function index()
     {
-        // Aquí iría el código para obtener todas las máquinas, por ejemplo:
-        // $maquinas = Maquina::all();
-        return view('maquinas.index'); // Llama a una vista que liste las máquinas
+        // Recupera todas las maquinarias de la base de datos
+    $maquinarias = Maquinaria::all();
+    
+    // Retorna la vista y pasa las maquinarias a la vista
+    return view('maquinas.index', compact('maquinarias'));
     }
     // Mostrar el formulario para crear una nueva máquina
     public function create()
@@ -20,10 +23,12 @@ class MaquinasController extends Controller
         return view('maquinas.create'); // Llama a una vista con el formulario de creación
     }
      // Mostrar los detalles de una máquina específica
-     public function show($idMaquina)
-     {
-         // Aquí iría el código para obtener una máquina específica por su id
-         // $maquina = Maquina::find($id);
-         return view('maquinas.show', compact ('idMaquina')); // Llama a una vista que muestre los detalles de la máquina
-     }
+    public function show($id)
+    {
+            // Obtiene la máquina por ID
+    $maquina = Maquinaria::findOrFail($id);
+
+    // Devuelve la vista con la máquina
+    return view('maquinas.show', compact('maquina'));
+    }
 }

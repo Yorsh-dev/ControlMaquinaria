@@ -54,13 +54,18 @@
             margin: 5px 0;
         }
 
-        .status-active {
-            color: #28a745;
+        .status-operativa {
+            color: #28a745; /* Verde */
             font-weight: bold;
         }
 
-        .status-inactive {
-            color: #dc3545;
+        .status-mantenimiento {
+            color: #fd7e14; /* Naranja */
+            font-weight: bold;
+        }
+
+        .status-fuera {
+            color: #dc3545; /* Rojo */
             font-weight: bold;
         }
 
@@ -103,6 +108,7 @@
         <h2>{{ $maquina->nombre }}</h2>
 
         <div class="details">
+<<<<<<< HEAD:resources/views/maquinas/show.php
             <label>Marca:</label>
             <p>{{ $maquina->marca }}</p>
 
@@ -120,13 +126,33 @@
 
             <label>Serie:</label>
             <p>{{ $maquina->serie }}</p>
+=======
+            <label>ID:</label>
+            <p>{{ $maquina->id }}</p>
+
+            <label>Marca:</label>
+            <p>{{ $maquina->marca }}</p>
+
+            <label>Modelo:</label>
+            <p>{{ $maquina->modelo }}</p>
+
+            <label>Número de Serie:</label>
+            <p>{{ $maquina->serie }}</p>
+
+            <label>Tipo de Combustible:</label>
+            <p>{{ $maquina->tipo_combustible }}</p>
+
+            <label>Precio por Hora:</label>
+            <p>S/. {{ number_format($maquina->precio_por_hora, 2) }}</p>
+>>>>>>> c089534d6e3f07d6aa204ca6fbe71b7b9ee54618:resources/views/maquinas/show.blade.php
 
             <label>Estado:</label>
-            <p class="{{ $maquina->estado == 'activa' ? 'status-active' : 'status-inactive' }}">
+            <p class="{{ $maquina->estado == 'operativa' ? 'status-operativa' : ($maquina->estado == 'mantenimiento' ? 'status-mantenimiento' : 'status-fuera') }}">
                 {{ ucfirst($maquina->estado) }}
             </p>
 
             <label>Ubicación Actual:</label>
+<<<<<<< HEAD:resources/views/maquinas/show.php
             <p>{{ $maquina->ubicacion_actual }}</p>
 
             <label>Horas Usadas:</label>
@@ -134,6 +160,15 @@
 
             <label>Operador Encargado:</label>
             <p>{{ $maquina->operador_id }}</p>
+=======
+            <p>{{ $maquina->ubicacion_actual ?? 'No especificada' }}</p>
+
+            <label>Horas de Uso:</label>
+            <p>{{ $maquina->horas_uso ?? 'No especificadas' }}</p>
+
+            <label>ID del Operador:</label>
+            <p>{{ $maquina->operador_id ?? 'Sin asignar' }}</p>
+>>>>>>> c089534d6e3f07d6aa204ca6fbe71b7b9ee54618:resources/views/maquinas/show.blade.php
         </div>
 
         <a href="/ControlMaquinaria/public/maquinas" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Maquinaria extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'nombre',
         'marca',

@@ -200,7 +200,14 @@
                             ENVIAR
                         </button>
                     </p>
+                    <p class="block">
+                        <button onclick="history.back()">
+                            Volver
+                        </button>
+                    </p>
                 </form>
+                
+
             </div>
             <div class="contact-info">
                 <h4>Más Información</h4>
