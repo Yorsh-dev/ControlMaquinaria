@@ -95,7 +95,6 @@
 
         <form action="/maquinas" method="POST">
             <!-- Laravel CSRF Protection -->
-            @csrf
 
             <label for="nombre">Nombre de la Máquina</label>
             <input type="text" id="nombre" name="nombre" placeholder="Ej. Excavadora 3000" required>

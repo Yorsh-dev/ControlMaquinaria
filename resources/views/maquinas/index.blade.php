@@ -6,15 +6,18 @@
     <title>Control de Maquinaria</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+        
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7f9;
+            font-family: 'Poppins', sans-serif;
+            background-color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #007bff;
+            background-color: #efb810;
+            font-weight: bold;
             color: white;
             padding: 20px;
             text-align: center;
@@ -43,16 +46,16 @@
         .machine-list th, .machine-list td {
             padding: 12px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #333;
         }
 
         .machine-list th {
-            background-color: #007bff;
+            background-color: #efb810;
             color: white;
         }
 
         .btn {
-            background-color: #28a745;
+            background-color: #007bff;
             color: white;
             padding: 10px 15px;
             border: none;
@@ -66,7 +69,7 @@
         }
 
         .btn:hover {
-            background-color: #218838;
+            background-color: #0056b3;
         }
 
         .status-operativa {
@@ -114,13 +117,13 @@
         }
 
         .btn-back {
-            background-color: #007bff;
+            background-color: #5e6266;
             margin-top: 20px;
             text-align: center;
         }
 
         .btn-back:hover {
-            background-color: #0056b3;
+            background-color: #333;
         }
     </style>
 </head>

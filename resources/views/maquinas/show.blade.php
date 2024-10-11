@@ -10,7 +10,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #333;
             margin: 0;
             padding: 0;
         }
@@ -106,6 +106,26 @@
             background-color: #fff;
             color: #333;
         }
+
+         .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -145,6 +165,10 @@
 
             <label>Operador Encargado:</label>
             <p>{{ $maquina->operador_id ? $maquina->operador->nombre : 'Sin operador asignado' }}</p>
+            
+            <div class="image-container">
+                <img src="{{ asset('images/ExCAT.png') }}" alt="Imagen de la máquina">
+            </div>
         </div>
 
         <a href="{{ url('maquinas') }}" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
