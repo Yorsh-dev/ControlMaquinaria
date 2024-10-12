@@ -1,130 +1,172 @@
-<!-- resources/views/componentes/index.blade.php -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Componentes</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <title>Control de Componentes de Maquinaria</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
         body {
-            background-color: #f4f7f9; /* Fondo claro */
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: #333;
+            margin: 0;
+            padding: 0;
         }
 
-        h1 {
-            color: #007bff; /* Azul oscuro */
-            margin-top: 20px;
-        }
-
-        .btn-success {
-            background-color: #28a745; /* Verde */
-            border-color: #28a745; /* Verde */
-        }
-
-        .btn-secondary {
-            background-color: #007bff; /* Azul */
-            border-color: #007bff; /* Azul */
-        }
-
-        .btn-danger {
-            background-color: #dc3545; /* Rojo */
-            border-color: #dc3545; /* Rojo */
-        }
-
-        .card {
-            border: none; /* Sin borde para un aspecto más limpio */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+        header {
+            background-color: #efb810;
+            font-weight: bold;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
         }
 
         .container {
-            max-width: 1000px;
-            margin-top: 20px auto;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .table th, .table td {
-            vertical-align: middle;
+        h2 {
+            color: #333;
         }
 
-        .btn-secondary, .btn-success, .btn-danger {
-            margin-top: 10px;
+        .component-list {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .component-list th, .component-list td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        .component-list th {
+            background-color: #efb810;
+            color: white;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn i {
+            margin-right: 5px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .status-operativa {
+            color: #28a745; /* Verde */
+            font-weight: bold;
+        }
+
+        .status-mantenimiento {
+            color: #fd7e14; /* Naranja */
+            font-weight: bold;
+        }
+
+        .status-fuera {
+            color: #dc3545; /* Rojo */
+            font-weight: bold;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .actions .btn-view {
+            background-color: #17a2b8;
+        }
+
+        .actions .btn-edit {
+            background-color: #ffc107;
+        }
+
+        .actions .btn-delete {
+            background-color: #dc3545;
+        }
+
+        .actions .btn-view:hover {
+            background-color: #138496;
+        }
+
+        .actions .btn-edit:hover {
+            background-color: #e0a800;
+        }
+
+        .actions .btn-delete:hover {
+            background-color: #c82333;
         }
 
         .btn-back {
-            margin-top: 15px;
+            background-color: #5e6266;
+            margin-top: 20px;
+            text-align: center;
         }
 
-        .thead-dark {
-            background-color: #343a40; /* Color de fondo para el encabezado */
-            color: white; /* Color de texto para el encabezado */
-        }
-
-        /* Estilo de tabla para mayor claridad */
-        .table {
-            background-color: white; /* Fondo blanco para la tabla */
-            border-radius: 8px; /* Bordes redondeados */
-            overflow: hidden; /* Para redondear esquinas */
-        }
-
-        /* Efecto hover para filas de tabla */
-        .table tr:hover {
-            background-color: #f1f1f1; /* Color de fondo al pasar el mouse */
+        .btn-back:hover {
+            background-color: #333;
         }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Listado de Componentes</h1>
+    <header>
+        Control de Componentes de Maquinaria
+    </header>
 
-        <!-- Tabla de Componentes -->
-        <table class="table table-bordered">
-            <thead class="thead-dark">
+    <div class="container">
+        <h2>Listado de Componentes</h2>
+        <table class="component-list">
+            <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Máquina Asignada</th>
-                    <th>Cantidad</th>
+                    <th>Tiempo</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Aquí se deben mostrar los componentes -->
-                @foreach($componentes as $componente)
-                    <tr>
-                        <td>{{ $componente->id }}</td>
-                        <td>{{ $componente->nombre }}</td>
-                        <td>{{ $componente->maquina_asignada }}</td>
-                        <td>{{ $componente->cantidad }}</td>
-                        <td>
-                            <!-- Botones de acción -->
-                            <a href="{{ route('componentes.show', $componente->id) }}" class="btn btn-info">Ver</a>
-                            <a href="{{ route('componentes.edit', $componente->id) }}" class="btn btn-warning">Editar</a>
-                            <form action="{{ route('componentes.destroy', $componente->id) }}" method="POST" style="display:inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este componente?')">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
+                @foreach ($componentes as $componente)
+                <tr>
+                    <td>{{ $componente->id }}</td>
+                    <td>{{ $componente->nombre }}</td>
+                    <td>{{ $componente->tipo_combustible }}</td> <!-- Cambié 'tipo' por 'tipo_combustible' basado en tu migración -->
+                    <td class="{{ $componente->estado == 'operativa' ? 'status-operativa' : ($componente->estado == 'mantenimiento' ? 'status-mantenimiento' : 'status-fuera') }}">
+                        {{ $componente->estado }}
+                    </td>
+                    <td class="actions">
+                        <a href="{{ url('componentes/' . $componente->id) }}" class="btn btn-view"><i class="fas fa-eye"></i> Ver</a>
+                        <a href="{{ url('componentes/' . $componente->id . '/edit') }}" class="btn btn-edit"><i class="fas fa-edit"></i> Editar</a>
+                        <a href="#" class="btn btn-delete"><i class="fas fa-trash-alt"></i> Eliminar</a>
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
 
-        <!-- Botón para agregar nuevos componentes -->
-        <a href="componentes/create" class="btn btn-success">
-            <i class="fas fa-plus"></i> Añadir Nuevo Componente
-        </a>
+        <a href="componentes/create" class="btn" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Nuevo Componente</a>
 
         <!-- Botón para volver al inicio -->
-        <a href="/ControlMaquinaria/public" class="btn btn-secondary btn-back">Volver al Inicio</a>
+        <a href="/ControlMaquinaria/public/" class="btn btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
