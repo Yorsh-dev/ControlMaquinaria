@@ -72,5 +72,30 @@ class MaquinasController extends Controller
 
         return redirect()->route('maquinas.index')->with('success', 'Máquina eliminada con éxito');
     }
+    public function update(Request $request, $id)
+    {
+        // Validación de los campos
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'marca' => 'required|string|max:255',
+            'modelo' => 'required|string|max:255',
+            'serie' => 'required|string|max:255',
+            'tipo_combustible' => 'required|string|max:255',
+            'precio_por_hora' => 'required|numeric',
+            'ubicacion_actual' => 'required|string|max:255',
+            'horas_uso' => 'required|numeric',
+            'operador_id' => 'required|integer',
+            'estado' => 'required|string|in:operativa,mantenimiento,fuera_servicio',
+        ]);
+
+        // Encontrar la máquina por ID
+        $maquinaria = Maquinaria::findOrFail($id);
+        
+        // Actualizar los datos
+        $maquinaria->update($request->all());
+
+        // Redirigir con un mensaje de éxito
+        return redirect()->route('maquinas.index')->with('success', 'Máquina actualizada con éxito.');
+    }
 
 }
