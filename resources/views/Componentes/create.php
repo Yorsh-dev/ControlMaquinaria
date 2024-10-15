@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+        
         body {
-            background-color: #f4f7f9; /* Fondo claro */
-            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f9;
+            font-family: 'Poppins', sans-serif;
         }
 
         h1 {
