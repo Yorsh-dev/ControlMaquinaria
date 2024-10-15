@@ -171,7 +171,7 @@
             </tbody>
 
         </table>
-
+        <br>
         <a href="maquinas/create" class="btn" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Nueva Máquina</a>
 
         <!-- Botón para volver al inicio -->

@@ -136,9 +136,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Máquinas Asignadas</th>
+                    <th>Teléfono</th>
                     <th>Certificaciones</th>
-                    <th>Última Asignación</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -148,7 +147,6 @@
                     <td>Juan Pérez</td>
                     <td>Excavadora 3000, Cargadora X200</td>
                     <td>Certificación de Operador de Excavadora</td>
-                    <td>01/09/2024</td>
                     <td class="actions">
                         <a href="operadores/1" class="btn btn-view"><i class="fas fa-eye"></i></a>
                         <a href="operadores/1/edit" class="btn btn-edit"><i class="fas fa-edit"></i></a>
@@ -159,7 +157,6 @@
                     <td>María López</td>
                     <td>Retroexcavadora B150</td>
                     <td>Certificación de Seguridad Industrial</td>
-                    <td>15/09/2024</td>
                     <td class="actions">
                         <a href="operadores/2" class="btn btn-view"><i class="fas fa-eye"></i></a>
                         <a href="operadores/2/edit" class="btn btn-edit"><i class="fas fa-edit"></i></a>
@@ -170,7 +167,6 @@
                     <td>Carlos Ruiz</td>
                     <td>Bulldozer D450</td>
                     <td>Certificación de Operador de Bulldozer</td>
-                    <td>20/09/2024</td>
                     <td class="actions">
                         <a href="operadores/3" class="btn btn-view"><i class="fas fa-eye"></i></a>
                         <a href="operadores/3/edit" class="btn btn-edit"><i class="fas fa-edit"></i></a>
