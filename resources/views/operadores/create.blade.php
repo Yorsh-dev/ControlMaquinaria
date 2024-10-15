@@ -93,20 +93,17 @@
     <div class="container">
         <h2>Formulario de Nuevo Operador</h2>
 
-        <form action="/operadores" method="POST">
-            <!-- Laravel CSRF Protection -->
-
-            <label for="id">ID del Operador</label>
-            <input type="text" id="id" name="id" placeholder="Ej. OP001" required>
+        <form action="{{ route('operadores.store') }}" method="POST">
+            @csrf  <!-- Laravel CSRF Protection -->
 
             <label for="nombre">Nombre del Operador</label>
             <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan" required>
 
-            <label for="maquinas_asignadas">Apellido del Operador</label>
-            <input type="text" id="apellido" name="apellido" placeholder="Ej. Perez" required>
+            <label for="apellido">Apellido del Operador</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Ej. Pérez" required>
 
-            <label for="certificaciones">Email del Operador</label>
-            <input type="text" id="email" name="email" placeholder="Ej. jperez@gmail.com" required>
+            <label for="email">Email del Operador</label>
+            <input type="email" id="email" name="email" placeholder="Ej. jperez@gmail.com" required>
 
             <label for="telefono">Teléfono del Operador</label>
             <input type="tel" id="telefono" name="telefono" placeholder="Ej. 987654321" required pattern="[0-9]{9}">

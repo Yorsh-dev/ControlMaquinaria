@@ -50,12 +50,12 @@
         }
 
         .operator-list th {
-            background-color: #333;
+            background-color: #efb810;
             color: white;
         }
 
         .btn {
-            background-color: #333;
+            background-color: #007bff;
             color: white;
             padding: 10px 15px;
             border: none;
@@ -69,55 +69,56 @@
         }
 
         .btn:hover {
-            background-color: #fff;
-            color: #333;
+            background-color: #0056b3;
         }
 
-        .back-btn {
-            background-color: #333;
-            margin-bottom: 20px;
+        .status-operativo {
+            color: #28a745; /* Verde */
+            font-weight: bold;
         }
 
-        .back-btn i {
-            margin-right: 5px;
+        .status-fuera_servicio {
+            color: #dc3545; /* Rojo */
+            font-weight: bold;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
         }
 
         .actions .btn-view {
-            background-color: #333;
+            background-color: #17a2b8;
         }
 
         .actions .btn-edit {
-            background-color: #333;
+            background-color: #ffc107;
         }
 
         .actions .btn-delete {
-            background-color: #333;
+            background-color: #dc3545;
         }
 
         .actions .btn-view:hover {
-            background-color: #fff;
-            color: #333;
+            background-color: #138496;
         }
 
         .actions .btn-edit:hover {
-            background-color: #fff;
-            color: #333;
+            background-color: #e0a800;
         }
 
         .actions .btn-delete:hover {
-            background-color: #fff;
-            color: #333;
+            background-color: #c82333;
         }
 
         .btn-back {
-            background-color: #333;
+            background-color: #5e6266;
             margin-top: 20px;
             text-align: center;
         }
 
         .btn-back:hover {
-            background-color: #fff;
-            color: #333;
+            background-color: #333;
         }
     </style>
 </head>
@@ -137,45 +138,38 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Teléfono</th>
-                    <th>Certificaciones</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($operadores as $operador)
                 <tr>
-                    <td>1</td>
-                    <td>Juan Pérez</td>
-                    <td>Excavadora 3000, Cargadora X200</td>
-                    <td>Certificación de Operador de Excavadora</td>
+                    <td>{{ $operador->id }}</td>
+                    <td>{{ $operador->nombre }}</td>
+                    <td>{{ $operador->telefono }}</td>
+                    <td class="{{ $operador->estado == 'operativo' ? 'status-operativo' : 'status-fuera_servicio' }}">
+                        {{ $operador->estado }}
+                    </td>
                     <td class="actions">
-                        <a href="operadores/1" class="btn btn-view"><i class="fas fa-eye"></i></a>
-                        <a href="operadores/1/edit" class="btn btn-edit"><i class="fas fa-edit"></i></a>
+                        <a href="{{ url('operadores/' . $operador->id) }}" class="btn btn-view"><i class="fas fa-eye"></i> Ver</a>
+                        <a href="{{ url('operadores/' . $operador->id . '/edit') }}" class="btn btn-edit"><i class="fas fa-edit"></i> Editar</a>
+                        <a href="#" class="btn btn-delete" onclick="event.preventDefault(); 
+                        if(confirm('¿Estás seguro de que quieres eliminar este operador?')) { 
+                            document.getElementById('delete-form-{{ $operador->id }}').submit(); 
+                        }">
+                        <i class="fas fa-trash-alt"></i> Eliminar
+                    </a>
+                    <form id="delete-form-{{ $operador->id }}" action="{{ route('operadores.destroy', $operador->id) }}" method="POST" style="display: none;">
+                        @csrf
+                        @method('DELETE')
+                    </form>
                     </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>María López</td>
-                    <td>Retroexcavadora B150</td>
-                    <td>Certificación de Seguridad Industrial</td>
-                    <td class="actions">
-                        <a href="operadores/2" class="btn btn-view"><i class="fas fa-eye"></i></a>
-                        <a href="operadores/2/edit" class="btn btn-edit"><i class="fas fa-edit"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Carlos Ruiz</td>
-                    <td>Bulldozer D450</td>
-                    <td>Certificación de Operador de Bulldozer</td>
-                    <td class="actions">
-                        <a href="operadores/3" class="btn btn-view"><i class="fas fa-eye"></i></a>
-                        <a href="operadores/3/edit" class="btn btn-edit"><i class="fas fa-edit"></i></a>
-                    </td>
-                </tr>
-                <!-- Agrega más filas según sea necesario -->
+                @endforeach
             </tbody>
         </table>
-
+        <br>
         <!-- Botón para agregar nuevo operador -->
         <a href="operadores/create" class="btn" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Nuevo Operador</a>
     </div>

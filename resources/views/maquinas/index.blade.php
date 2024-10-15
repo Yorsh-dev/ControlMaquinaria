@@ -133,6 +133,8 @@
     </header>
 
     <div class="container">
+        <a href="/ControlMaquinaria/public/" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
+
         <h2>Listado de Máquinas</h2>
         <table class="machine-list">
             <thead>
@@ -175,7 +177,6 @@
         <a href="maquinas/create" class="btn" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Nueva Máquina</a>
 
         <!-- Botón para volver al inicio -->
-        <a href="/ControlMaquinaria/public/" class="btn btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
     </div>
 </body>
 </html>

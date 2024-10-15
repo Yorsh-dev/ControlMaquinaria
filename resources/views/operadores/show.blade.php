@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles de la Máquina</title>
+    <title>Detalles del Operador</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7f9;
+            font-family: 'Poppins', sans-serif;
+            background-color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #333;
+            background-color: #efb810;
+            font-weight: bold;
             color: white;
             padding: 20px;
             text-align: center;
             font-size: 24px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .container {
@@ -27,16 +31,19 @@
             padding: 20px;
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             color: #333;
             text-align: center;
+            margin-bottom: 20px;
         }
 
         .details {
             margin-top: 20px;
+            border-top: 2px solid #efb810;
+            padding-top: 20px;
         }
 
         .details label {
@@ -49,15 +56,14 @@
         .details p {
             font-size: 18px;
             margin: 5px 0;
+            padding: 8px;
+            border-left: 4px solid #efb810;
+            background-color: #f9f9f9;
+            border-radius: 4px;
         }
 
-        .status-operativa {
+        .status-operativo {
             color: #28a745; /* Verde */
-            font-weight: bold;
-        }
-
-        .status-mantenimiento {
-            color: #fd7e14; /* Naranja */
             font-weight: bold;
         }
 
@@ -76,6 +82,7 @@
             text-decoration: none;
             display: inline-block;
             margin-top: 20px;
+            transition: background-color 0.3s;
         }
 
         .btn i {
@@ -87,57 +94,49 @@
         }
 
         .back-btn {
-            background-color: #6c757d;
+            background-color: #333;
         }
 
         .back-btn:hover {
-            background-color: #5a6268;
+            background-color: #fff;
+            color: #333;
         }
     </style>
 </head>
 <body>
     <header>
-        Detalles de la Máquina
+        Detalles del Operador
     </header>
 
     <div class="container">
-        <h2>{{ $maquina->nombre }}</h2>
+        <h2>{{ $operador->nombre }} {{ $operador->apellido }}</h2>
 
         <div class="details">
             <label>ID:</label>
-            <p>{{ $maquina->id }}</p>
+            <p>{{ $operador->id }}</p>
 
-            <label>Marca:</label>
-            <p>{{ $maquina->marca }}</p>
+            <label>Nombre Completo:</label>
+            <p>{{ $operador->nombre }} {{ $operador->apellido }}</p>
 
-            <label>Modelo:</label>
-            <p>{{ $maquina->modelo }}</p>
+            <label>Email:</label>
+            <p>{{ $operador->email }}</p>
 
-            <label>Número de Serie:</label>
-            <p>{{ $maquina->serie }}</p>
-
-            <label>Tipo de Combustible:</label>
-            <p>{{ $maquina->tipo_combustible }}</p>
-
-            <label>Precio por Hora:</label>
-            <p>S/. {{ number_format($maquina->precio_por_hora, 2) }}</p>
+            <label>Teléfono:</label>
+            <p>{{ $operador->telefono ?? 'No especificado' }}</p>
 
             <label>Estado:</label>
-            <p class="{{ $maquina->estado == 'operativa' ? 'status-operativa' : ($maquina->estado == 'mantenimiento' ? 'status-mantenimiento' : 'status-fuera') }}">
-                {{ ucfirst($maquina->estado) }}
+            <p class="{{ $operador->estado == 'operativo' ? 'status-operativo' : 'status-fuera' }}">
+                {{ ucfirst($operador->estado) }}
             </p>
 
-            <label>Ubicación Actual:</label>
-            <p>{{ $maquina->ubicacion_actual ?? 'No especificada' }}</p>
+            <label>Fecha de Creación:</label>
+            <p>{{ $operador->created_at->format('d/m/Y') }}</p>
 
-            <label>Horas de Uso:</label>
-            <p>{{ $maquina->horas_uso ?? 'No especificadas' }}</p>
-
-            <label>ID del Operador:</label>
-            <p>{{ $maquina->operador_id ?? 'Sin asignar' }}</p>
+            <label>Última Actualización:</label>
+            <p>{{ $operador->updated_at->format('d/m/Y') }}</p>
         </div>
 
-        <a href="/ControlMaquinaria/public/maquinas" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
+        <a href="{{ url('operadores') }}" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
     </div>
 </body>
 </html>

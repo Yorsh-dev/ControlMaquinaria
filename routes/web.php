@@ -24,7 +24,10 @@ Route::controller(OperadoresController::class)->group(function() {
     Route::get('operadores',[OperadoresController::class, 'index']);
     Route::get('operadores/create',[OperadoresController::class, 'create']);
     Route::get('operadores/{idOperador}',[OperadoresController::class, 'show']);
+    Route::get('operadores/{id}/edit', [OperadoresController::class, 'edit'])->name('operadores.edit');
+
 });
+Route::resource('operadores', OperadoresController::class);
 
 Route::controller(ComponentesController::class)->group(function() {
     Route::get('componentes', 'index');           // Listar todos los componentes
