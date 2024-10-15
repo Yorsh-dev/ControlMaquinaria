@@ -33,7 +33,11 @@ Route::controller(ComponentesController::class)->group(function() {
     Route::get('componentes', 'index');           // Listar todos los componentes
     Route::get('componentes/create', 'create');   // Formulario para crear un componente
     Route::get('componentes/show'); // Ver detalles de un componente
+    Route::get('componentes/{id}/edit', [ComponentesController::class, 'edit'])->name('componentes.edit');
+
 });
+Route::resource('componentes', ComponentesController::class);
+
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');

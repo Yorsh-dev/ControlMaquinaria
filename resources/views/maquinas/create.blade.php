@@ -132,8 +132,7 @@
         
             <button type="submit" class="btn"><i class="fas fa-save"></i> Guardar Máquina</button>
         </form>
-        
-
+        <br>    
         <a href="/ControlMaquinaria/public/maquinas" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
     </div>
 

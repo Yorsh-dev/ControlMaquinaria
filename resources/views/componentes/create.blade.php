@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Nuevo Operador</title>
+    <title>Agregar Nuevo Componente</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -49,7 +49,7 @@
             color: #333;
         }
 
-        input, select {
+        input, select, textarea {
             padding: 10px;
             margin-bottom: 20px;
             border-radius: 5px;
@@ -87,37 +87,45 @@
 <body>
 
     <header>
-        Agregar Nuevo Operador
+        Agregar Nuevo Componente
     </header>
 
     <div class="container">
-        <h2>Formulario de Nuevo Operador</h2>
+        <h2>Formulario de Nuevo Componente</h2>
 
-        <form action="{{ route('operadores.store') }}" method="POST">
-            @csrf  <!-- Laravel CSRF Protection -->
+        <form action="{{ route('componentes.store') }}" method="POST">
+            @csrf
+            <label for="nombre">Nombre del Componente</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. Motor principal" required>
 
-            <label for="nombre">Nombre del Operador</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan" required>
+            <label for="tiempo_de_vida">Tiempo de Vida (horas/días)</label>
+            <input type="number" id="tiempo_de_vida" name="tiempo_de_vida" placeholder="Ej. 500" required>
 
-            <label for="apellido">Apellido del Operador</label>
-            <input type="text" id="apellido" name="apellido" placeholder="Ej. Pérez" required>
-
-            <label for="email">Email del Operador</label>
-            <input type="email" id="email" name="email" placeholder="Ej. jperez@gmail.com" required>
-
-            <label for="telefono">Teléfono del Operador</label>
-            <input type="tel" id="telefono" name="telefono" placeholder="Ej. 987654321" required pattern="[0-9]{9}">
-
-            <label for="estado">Estado del Operador</label>
+            <label for="estado">Estado</label>
             <select id="estado" name="estado" required>
-                <option value="operativo">Operativo</option>
-                <option value="fuera_servicio">Fuera de servicio</option>
+                <option value="funcionando">Funcionando</option>
+                <option value="mantenimiento">Mantenimiento</option>
+                <option value="fuera_de_servicio">Fuera de Servicio</option>
             </select>
 
-            <button type="submit" class="btn"><i class="fas fa-save"></i> Guardar Operador</button>
+            <label for="maquinaria_id">Máquina Asignada</label>
+            <select id="maquinaria_id" name="maquinaria_id" required>
+                <!-- Aquí puedes llenar el select con las máquinas disponibles -->
+                <option value="">Seleccione una máquina</option>
+                <option value="1">Máquina 1</option>
+                <option value="2">Máquina 2</option>
+            </select>
+
+            <label for="fecha_instalacion">Fecha de Instalación</label>
+            <input type="date" id="fecha_instalacion" name="fecha_instalacion" required>
+
+            <label for="observaciones">Observaciones</label>
+            <textarea id="observaciones" name="observaciones" placeholder="Detalles adicionales" rows="4"></textarea>
+
+            <button type="submit" class="btn"><i class="fas fa-save"></i> Guardar Componente</button>
         </form>
-        <br>
-        <a href="/ControlMaquinaria/public/operadores" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
+        <br>    
+        <a href="/componentes" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
     </div>
 
 </body>

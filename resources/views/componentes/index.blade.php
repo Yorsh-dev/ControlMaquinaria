@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Control de Componentes de Maquinaria</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
@@ -72,7 +72,7 @@
             background-color: #0056b3;
         }
 
-        .status-operativa {
+        .status-funcionando {
             color: #28a745; /* Verde */
             font-weight: bold;
         }
@@ -133,14 +133,17 @@
     </header>
 
     <div class="container">
+        <a href="/ControlMaquinaria/public/" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
+
         <h2>Listado de Componentes</h2>
         <table class="component-list">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Tiempo</th>
+                    <th>Tiempo de Vida</th>
                     <th>Estado</th>
+                    <th>Maquinaria ID</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -149,24 +152,31 @@
                 <tr>
                     <td>{{ $componente->id }}</td>
                     <td>{{ $componente->nombre }}</td>
-                    <td>{{ $componente->tipo_combustible }}</td> <!-- Cambié 'tipo' por 'tipo_combustible' basado en tu migración -->
-                    <td class="{{ $componente->estado == 'operativa' ? 'status-operativa' : ($componente->estado == 'mantenimiento' ? 'status-mantenimiento' : 'status-fuera') }}">
+                    <td>{{ $componente->tiempo_de_vida }}</td>
+                    <td class="{{ $componente->estado == 'funcionando' ? 'status-funcionando' : ($componente->estado == 'mantenimiento' ? 'status-mantenimiento' : 'status-fuera') }}">
                         {{ $componente->estado }}
                     </td>
+                    <td>{{ $componente->maquinaria_id }}</td>
                     <td class="actions">
                         <a href="{{ url('componentes/' . $componente->id) }}" class="btn btn-view"><i class="fas fa-eye"></i> Ver</a>
                         <a href="{{ url('componentes/' . $componente->id . '/edit') }}" class="btn btn-edit"><i class="fas fa-edit"></i> Editar</a>
-                        <a href="#" class="btn btn-delete"><i class="fas fa-trash-alt"></i> Eliminar</a>
+                        <a href="#" class="btn btn-delete" onclick="event.preventDefault(); 
+                        if(confirm('¿Estás seguro de que quieres eliminar este componente?')) { 
+                            document.getElementById('delete-form-{{ $componente->id }}').submit(); 
+                        }">
+                            <i class="fas fa-trash-alt"></i> Eliminar
+                        </a>
+                        <form id="delete-form-{{ $componente->id }}" action="{{ route('componentes.destroy', $componente->id) }}" method="POST" style="display: none;">
+                            @csrf
+                            @method('DELETE')
+                        </form>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-
+        <br>
         <a href="componentes/create" class="btn" style="margin-top: 20px;"><i class="fas fa-plus"></i> Agregar Nuevo Componente</a>
-
-        <!-- Botón para volver al inicio -->
-        <a href="/ControlMaquinaria/public/" class="btn btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
     </div>
 </body>
 </html>
