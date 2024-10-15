@@ -125,7 +125,7 @@
             <button type="submit" class="btn"><i class="fas fa-save"></i> Guardar Componente</button>
         </form>
         <br>    
-        <a href="/componentes" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
+        <a href="/ControlMaquinaria/public/componentes" class="btn back-btn"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
     </div>
 
 </body>
